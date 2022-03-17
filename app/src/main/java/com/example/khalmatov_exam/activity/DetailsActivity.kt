@@ -52,6 +52,8 @@ class DetailsActivity : AppCompatActivity() {
 
         btn_save.setOnClickListener {
             saveData()
+            val intent = Intent()
+            setResult(RESULT_OK, intent)
             finish()
         }
     }

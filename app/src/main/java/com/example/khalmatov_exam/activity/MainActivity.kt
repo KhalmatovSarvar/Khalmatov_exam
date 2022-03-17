@@ -1,5 +1,6 @@
 package com.example.khalmatov_exam.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var apiService: ApiService
     private lateinit var appDatabase: AppDatabase
     lateinit var add_btn: ImageView
+    var REQUEST_CODE = 1000
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,7 +54,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun openDetailsActivity() {
             val intent = Intent(this,DetailsActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent,REQUEST_CODE)
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == REQUEST_CODE && resultCode == RESULT_OK){
+            adapter.notifyDataSetChanged()
+        }
     }
 
 
