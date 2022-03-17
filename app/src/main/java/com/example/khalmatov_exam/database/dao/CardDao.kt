@@ -9,7 +9,7 @@ import com.example.khalmatov_exam.model.Card
 @Dao
 interface CardDao {
     @Insert
-    fun createUser(card: CardEntity)
+    fun createCard(card: CardEntity)
 
     @Query("SELECT * FROM cards")
     fun getCards():List<CardEntity>
