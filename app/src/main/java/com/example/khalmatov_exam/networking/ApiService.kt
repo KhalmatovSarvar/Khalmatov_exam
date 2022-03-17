@@ -4,7 +4,8 @@ import com.example.khalmatov_exam.model.Card
 import retrofit2.Call
 import retrofit2.http.GET
 
-interface ApiService {
+
+interface ApiService{
     @GET("cards")
     fun getCards(): Call<ArrayList<Card>>
 }

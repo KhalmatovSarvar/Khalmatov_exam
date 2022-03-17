@@ -26,8 +26,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        apiService = ApiClient.createService(ApiService::class.java)
         appDatabase = AppDatabase.getInstance((this))
-        apiService = ApiClient.apiService
+
         initViews()
         setObservers()
     }
